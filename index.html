@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" style="background-color:#228B22">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="principal">
+
+    </div>
+    <div class="send">
+      <form onsubmit="socket.emit('messageSend', this.message.value);" method="post">
+        <input type="text" name="message" value="">
+        <input type="submit" name="send" value="send">
+      </form>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const socket = io();
+    socket.emit("firstLoad");
+    socket.on("firstLoad", data => affichage(data));
+    socket.on("message", data =>{
+      affichage(data);
+    });
+
+    function affichage(data) {
+      let p = document.getElementsByTagName('p');
+      if (p) {
+        for (let i = 0; i < p.length; i++) {
+          p[i].remove();
+        }
+      }
+      for (let i = 0; i < data.length; i++) {
+        let para = document.createElement("p");
+        let node = document.createTextNode(data[i]);
+        para.appendChild(node);
+
+        let element = document.getElementById("principal");
+        element.appendChild(para);
+      }
+    }
+  </script>
+</html>

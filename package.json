@@ -1,0 +1,22 @@
+{
+  "name": "exosjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serveur.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/styvenangles/ExosJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/styvenangles/ExosJS/issues"
+  },
+  "homepage": "https://github.com/styvenangles/ExosJS#readme",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  }
+}
